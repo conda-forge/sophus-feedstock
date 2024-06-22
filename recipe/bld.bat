@@ -7,7 +7,7 @@ cmake %SRC_DIR% ^
   -DCMAKE_CXX_FLAGS="/EHsc /Zm200 /bigobj" ^
   -DBUILD_SOPHUS_TESTS=ON
 
-cmake --build build --parallel --config Release
+cmake --build build --config Release
 
 ctest --test-dir build --output-on-failure --build-config Release
 
