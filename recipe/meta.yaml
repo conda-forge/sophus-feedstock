@@ -11,8 +11,7 @@ source:
   sha256: 0f3e46a98817f9841634c5ed85eda8597340e9e4b85b3d9ceb587ac56028f33a
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
 
 requirements:
   build:
@@ -20,7 +19,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - cmake
-    - make  # [not win]
+    - ninja  # [not win]
   host:
     - eigen >=3.3
 
@@ -31,6 +30,8 @@ test:
   commands:
     - test -f ${PREFIX}/include/sophus/types.hpp                # [unix]
     - test -f ${PREFIX}/share/sophus/cmake/SophusTargets.cmake  # [unix]
+    - if not exist %PREFIX%\\Library\\include\\sophus\\types.hpp exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\share\\sophus\\cmake\\SophusTargets.cmake exit 1  # [win]
 
 about:
   home: https://github.com/strasdat/Sophus
