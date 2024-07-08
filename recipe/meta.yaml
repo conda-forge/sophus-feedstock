@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/strasdat/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 0f3e46a98817f9841634c5ed85eda8597340e9e4b85b3d9ceb587ac56028f33a
+  sha256: 3f3098bdac2c74d42a921dbfb0e5e4b23601739e35a1c1236c2807c399da960c
 
 build:
   number: 2
