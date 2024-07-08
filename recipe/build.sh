@@ -7,6 +7,12 @@ if [[ "${target_platform}" == osx-* ]]; then
   CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 fi
 
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
+  BUILD_SOPHUS_TESTS=ON
+else
+  BUILD_SOPHUS_TESTS=OFF
+fi
+
 cmake $SRC_DIR \
       ${CMAKE_ARGS} \
       -G Ninja \
@@ -14,9 +20,12 @@ cmake $SRC_DIR \
       -DCMAKE_INSTALL_PREFIX=${PREFIX} \
       -DCMAKE_PREFIX_PATH=${PREFIX} \
       -DCMAKE_BUILD_TYPE=Release \
-      -DBUILD_SOPHUS_TESTS=ON
+      -DBUILD_SOPHUS_TESTS=${BUILD_SOPHUS_TESTS}
+
 cmake --build build --parallel
+
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
   ctest --test-dir build --output-on-failure
 fi
+
 cmake --build build --target install
