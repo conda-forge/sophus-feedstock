@@ -1,0 +1,27 @@
+From fd3fcfa116f078d731d062d1d74f2b31aaf8854f Mon Sep 17 00:00:00 2001
+From: cho-m <cho-m@users.noreply.github.com>
+Date: Sat, 1 Nov 2025 10:33:23 +0900
+Subject: [PATCH] Support building with Eigen3 5.0.0
+
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c4f31852..f1e784c4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -49,7 +49,10 @@ endif()
+ # example defined by a parent project including Sophus via `add_subdirectory`.)
+ 
+ if(NOT TARGET Eigen3::Eigen)
+-  find_package(Eigen3 3.4.0 REQUIRED)
++  find_package(Eigen3 3.4...5 QUIET)
++  if(NOT Eigen3_FOUND)
++    find_package(Eigen3 3.4.0 REQUIRED)
++  endif()
+ endif()
+ 
+ # Define interface library target
+-- 
+2.51.0
