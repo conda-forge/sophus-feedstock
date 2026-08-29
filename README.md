@@ -1,7 +1,7 @@
 About sophus-feedstock
 ======================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sophus-feedstock-v1-independent-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sophus-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/strasdat/Sophus
 
@@ -23,8 +23,8 @@ Current build status
 <table><tr>
     <td>GitHub Actions</td>
     <td>
-      <a href="https://github.com/conda-forge/sophus-feedstock-v1-independent-feedstock/actions/workflows/conda-build.yml">
-        <img src="https://github.com/conda-forge/sophus-feedstock-v1-independent-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      <a href="https://github.com/conda-forge/sophus-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/sophus-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
     </td>
   </tr>
@@ -34,8 +34,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sophus-feedstock-v1-independent-feedstock?branchName=main">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=17595&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sophus-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -43,8 +43,8 @@ Current build status
           <tbody><tr>
               <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sophus-feedstock-v1-independent-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=17595&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sophus-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr>
