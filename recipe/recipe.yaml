@@ -1,0 +1,68 @@
+schema_version: 1
+
+context:
+  version: "1.24.6"
+
+package:
+  name: sophus
+  version: "1!${{ version }}"
+
+source:
+  url: https://github.com/strasdat/Sophus/archive/${{ version }}.tar.gz
+  sha256: 3f3098bdac2c74d42a921dbfb0e5e4b23601739e35a1c1236c2807c399da960c
+  patches:
+    - 0001-support-eigen-5.patch
+
+build:
+  number: 4
+  script:
+    - if: unix
+      then: bash "${RECIPE_DIR}/build.sh"
+    - if: win
+      then: call "%RECIPE_DIR%\\build.bat"
+
+requirements:
+  build:
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
+    - cmake
+    - if: not win
+      then: ninja
+  host:
+    - eigen >=3.4
+    - eigen-abi-devel >=3.4
+  run:
+    - ${{ pin_compatible("eigen", upper_bound="x") }}
+
+tests:
+  - files:
+      recipe:
+        - tests/
+    requirements:
+      run:
+        - ${{ compiler("cxx") }}
+        - ${{ stdlib("c") }}
+        - cmake
+        - ninja
+    script:
+      - cmake -S tests -B tests/build -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - cmake --build tests/build --config Release
+      - ctest --test-dir tests/build --output-on-failure --build-config Release
+
+about:
+  homepage: https://github.com/strasdat/Sophus
+  repository: https://github.com/strasdat/Sophus
+  documentation: https://strasdat.github.io/Sophus/
+  summary: C++ implementation of Lie Groups using Eigen
+  description: |
+    This is a C++ implementation of Lie groups commonly used for 2D and 3D
+    geometric problems.
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+
+extra:
+  feedstock-name: sophus
+  recipe-maintainers:
+    - versatran01

@@ -13,9 +13,8 @@ Development: https://github.com/strasdat/Sophus
 
 Documentation: https://strasdat.github.io/Sophus/
 
-This is a c++ implementation of Lie groups commonly used for 2d and 3d
+This is a C++ implementation of Lie groups commonly used for 2D and 3D
 geometric problems.
-
 
 Current build status
 ====================
